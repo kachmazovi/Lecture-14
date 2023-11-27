@@ -1,0 +1,128 @@
+body {
+  background: #f1f1f1;
+  padding: 50px 100px;
+
+  @media (max-width: $s-width) {
+    padding: 50px 20px;
+  }
+
+  header {
+    // width: 700px;
+    // height: 50px;
+    // margin-bottom: 75px;
+
+    @extend %container;
+
+    @media (max-width: $l-width-small) {
+      width: 100%;
+      height: auto;
+    }
+
+    ul {
+      @include display-flex(space-between);
+
+      @media (max-width: $m-width) {
+        justify-content: space-around;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      li {
+        color: #000;
+        font-size: 27px;
+        font-weight: 700;
+      }
+    }
+  }
+
+  main {
+    .container {
+      @media (max-width: $l-width) {
+        width: 900px;
+        margin: 0 auto;
+      }
+
+      @media (max-width: $l-width) {
+        width: 775px;
+      }
+
+      @media (max-width: $l-width-small) {
+        width: 100%;
+      }
+
+      h1 {
+        // color: #000;
+        // font-size: 40px;
+        // font-weight: 700;
+        // margin-bottom: 45px;
+
+        @include h1-header;
+
+        @media (max-width: $l-width) {
+          text-align: center;
+        }
+      }
+
+      .wrapper {
+        @include display-flex(space-between);
+
+        @media (max-width: $xl-width) {
+          justify-content: space-around;
+          gap: 45px;
+        }
+
+        .item {
+          width: 365px;
+          height: 360px;
+          border: 1px solid black;
+
+          @media (max-width: $l-width) {
+            width: 450px;
+            height: 420px;
+          }
+
+          @media (max-width: $s-width) {
+            height: auto;
+          }
+
+          div:first-child {
+            height: 190px;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            @media (max-width: $l-width) {
+              height: 260px;
+            }
+          }
+          div:last-child {
+            padding: 60px 50px 0px 30px;
+
+            p {
+              margin-bottom: 15px;
+              color: $main-font-color;
+              font-size: 18px;
+            }
+          }
+        }
+
+        .item:first-child {
+          div:first-child {
+            background-image: url(../images/img-1.svg);
+          }
+        }
+
+        .item:nth-child(2) {
+          div:first-child {
+            background-image: url(../images/img-2.svg);
+          }
+        }
+
+        .item:last-child {
+          div:first-child {
+            background-image: url(../images/img-3.svg);
+          }
+        }
+      }
+    }
+  }
+}
