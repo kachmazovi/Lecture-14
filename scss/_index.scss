@@ -1,0 +1,180 @@
+body {
+    @extend %my-container;
+
+    .index-header {
+        @include goFlex(row, space-between, center);
+        padding: 0 30px;
+
+        ul {
+            width: 400px;
+            @include goFlex(row, space-between, center);
+            padding: 5px 0;
+
+            @media (max-width: 520px) {
+                width: 220px;
+                justify-content: space-around;
+            }
+
+            @media (max-width: 400px) {
+                display: none;
+            }
+
+            li {
+                color: $primaryColor;
+                font-size: $primaryFontSize;
+            }
+        }
+
+        .burger-menu {
+            display: none;
+            height: 30px;
+
+            @media (max-width: 400px) {
+                @include goFlex(column, space-around, center)
+            }
+
+            div {
+                width: 30px;
+                height: 5px;
+                background-color: $primaryColor;
+                border-radius: 5px
+            }
+        }
+    }
+
+    .main-section {
+        margin: 25px 0;
+        position: relative;
+        width: 100%;
+        height: 600px;
+
+        @media (max-width: $tablet-version) {
+            height: 500px;
+        }
+
+        @media (max-width: $mobile-version) {
+            height: 300px;
+        }
+
+        @include child-image('../images/main-image.svg');
+
+        img {
+            width: 100%;
+        }
+
+        .text-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+
+            h1 {
+                font-size: 80px;
+
+                @media (max-width: $mobile-version) {
+                    font-size: 60px;
+                }
+            }
+
+            p {
+                font-size: 20px;
+
+                @media (max-width: $mobile-version) {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .index-main {
+        @include goFlex(row, space-between);
+        padding: 50px;
+
+        @media (max-width: 1000px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media (max-width: $mobile-version) {
+            padding: 50px 15px;
+        }
+
+        .index-left-side {
+            width: 20%;
+
+            @media (max-width: 1000px) {
+                width: 60%;
+                margin-bottom: 50px;
+
+                text-align: center;
+            }
+
+            @media (max-width: $mobile-version) {
+                width: 80%;
+                ;
+            }
+
+            h1 {
+                color: $secondaryColor;
+                font-size: $primaryFontSize;
+                margin-bottom: 20px;
+            }
+
+            p {
+                color: $primaryColor;
+                font-size: $secondaryFontSize;
+            }
+        }
+
+        .index-right-side {
+            width: 70%;
+
+            @media (max-width: 1000px) {
+                width: 100%;
+            }
+
+            @include goFlex(row, space-between);
+            gap: 20px;
+
+            @media (max-width: 1400px) {
+                justify-content: space-evenly;
+            }
+
+            .index-right-box {
+                width: 290px;
+                height: 320px;
+
+                &:first-child {
+                    @include child-image('../images/child-image-1.svg')
+                }
+
+                &:nth-child(2) {
+                    @include child-image('../images/child-image-2.svg')
+                }
+
+                &:nth-child(3) {
+                    @include child-image('../images/child-image-3.svg')
+                }
+
+                &:nth-child(4) {
+                    @include child-image('../images/child-image-4.svg')
+                }
+
+                &:nth-child(5) {
+                    @include child-image('../images/child-image-5.svg')
+                }
+
+                &:nth-child(6) {
+                    @include child-image('../images/child-image-6.svg')
+                }
+
+                @media (max-width: $mobile-version) {
+                    width: 100%;
+                }
+
+            }
+        }
+    }
+}
